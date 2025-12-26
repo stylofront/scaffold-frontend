@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import Script from 'next/script'
 
 const outfit = Outfit({
     subsets: ['latin'],
@@ -79,7 +80,10 @@ export const metadata: Metadata = {
         title: 'StyloFront Scaffold - Generate Project Scaffolds Instantly',
         description: 'Generate clean, modern project scaffolds in seconds. Client-side. Version-agnostic.',
         creator: '@stylofront',
-    }
+    },
+    verification: {
+        google: 'googlef5c90b0ba34f5df5.html',
+    },
 }
 
 export default function RootLayout({
@@ -93,6 +97,19 @@ export default function RootLayout({
                 <link rel="icon" href="/logo-t.png" type="image/png" />
             </head>
             <body className={`${spaceGrotesk.className} antialiased`}>
+                {/* Google Analytics */}
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-F16EZFZR04"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-F16EZFZR04');
+                `}
+                </Script>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
