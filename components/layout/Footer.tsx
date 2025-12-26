@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Package, Zap, Rocket, Code, Download, Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export function Footer() {
     return (
@@ -24,9 +25,7 @@ export function Footer() {
                             transition={{ duration: 0.5 }}
                         >
                             <div className="flex items-center gap-2 mb-4">
-                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 border border-primary/20">
-                                    <Package className="h-5 w-5 text-primary" />
-                                </div>
+                                <Image src="/logo-t.png" alt="Logo" width={40} height={40} priority={true} className="w-16 h-13 rounded-lg" />
                                 <h3 className="font-bold font-heading text-lg">StyloFront Scaffold</h3>
                             </div>
                             <p className="text-sm text-muted-foreground leading-relaxed">
